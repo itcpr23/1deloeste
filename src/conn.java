@@ -9,8 +9,13 @@
  * @author hp
  */
 public class conn {
+
     protected String driver = "com.mysql.jdbc.Driver";
     protected String url = "jdbc:mysql://localhost/deloeste_registration?";
+
+    protected String dbname = "deloeste_registration";
+   
+
      protected String username = "root";
      protected String password = ""; 
     

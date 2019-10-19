@@ -22,7 +22,7 @@ public class addproduct_frame {
 conn cn = new conn();
 public int addproduct(String prname, int prqty, int prprice){
     int z = 0;
-    String sql= "insert into product_info values (null,?,?,?)";
+    String sql= "insert into product values (null,?,?,?)";
 try{
         Class.forName(cn.driver);
         Connection con = DriverManager.getConnection(cn.url,cn.username,cn.password);
@@ -43,7 +43,7 @@ public void deleteprod(int id){
     try{
         Class.forName(cn.driver);
         Connection con = DriverManager.getConnection(cn.url,cn.username,cn.password);
-        PreparedStatement pstmt = con.prepareStatement("Delete from product_info where id =?");
+        PreparedStatement pstmt = con.prepareStatement("Delete from product where id =?");
         pstmt.setInt(1, id);
         pstmt.executeUpdate();
 }   catch (ClassNotFoundException ex) {

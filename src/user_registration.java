@@ -9,10 +9,10 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author hp
+ * @author Aiibii
  */
 public class user_registration extends javax.swing.JFrame {
-
+registration reg = new registration();
     /**
      * Creates new form user_registration
      */
@@ -20,11 +20,10 @@ public class user_registration extends javax.swing.JFrame {
         initComponents();
     }
 public void clear_reg_txtfld(){
-     fntf.setText(null);
+    fntf.setText(null);
         lntf.setText(null);
         untf.setText(null);
         pwpf.setText(null);
-    
 }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,82 +34,95 @@ public void clear_reg_txtfld(){
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Registration_frame = new javax.swing.JFrame();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        registration_frame = new javax.swing.JFrame();
+        untf = new javax.swing.JTextField();
         fntf = new javax.swing.JTextField();
         lntf = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        untf = new javax.swing.JTextField();
-        pwpf = new javax.swing.JPasswordField();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        pwpf = new javax.swing.JPasswordField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
-        Registration_frame.setMinimumSize(new java.awt.Dimension(400, 400));
+        registration_frame.setMinimumSize(new java.awt.Dimension(400, 300));
 
-        jLabel1.setText("Firstname:");
-
-        jLabel2.setText("Lastname:");
-
-        jLabel3.setText("Username:");
-
-        jLabel4.setText("Password:");
-
-        jButton2.setText("submit");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        untf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                untfActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout Registration_frameLayout = new javax.swing.GroupLayout(Registration_frame.getContentPane());
-        Registration_frame.getContentPane().setLayout(Registration_frameLayout);
-        Registration_frameLayout.setHorizontalGroup(
-            Registration_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Registration_frameLayout.createSequentialGroup()
-                .addGroup(Registration_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Registration_frameLayout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addGroup(Registration_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jLabel1.setText("Username");
+
+        jLabel2.setText("Password");
+
+        jLabel3.setText("Firstname");
+
+        jLabel4.setText("Lastname");
+
+        jButton3.setText("Submit");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout registration_frameLayout = new javax.swing.GroupLayout(registration_frame.getContentPane());
+        registration_frame.getContentPane().setLayout(registration_frameLayout);
+        registration_frameLayout.setHorizontalGroup(
+            registration_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(registration_frameLayout.createSequentialGroup()
+                .addGap(208, 208, 208)
+                .addComponent(jButton3)
+                .addContainerGap(127, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registration_frameLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(registration_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(registration_frameLayout.createSequentialGroup()
+                        .addGroup(registration_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
-                            .addComponent(jLabel2)
+                            .addComponent(jLabel2))
+                        .addGap(50, 50, 50)
+                        .addGroup(registration_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(untf, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+                            .addComponent(pwpf)))
+                    .addGroup(registration_frameLayout.createSequentialGroup()
+                        .addGroup(registration_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4))
-                        .addGap(36, 36, 36)
-                        .addGroup(Registration_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGap(52, 52, 52)
+                        .addGroup(registration_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(fntf)
-                            .addComponent(lntf)
-                            .addComponent(untf, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
-                            .addComponent(pwpf)))
-                    .addGroup(Registration_frameLayout.createSequentialGroup()
-                        .addGap(153, 153, 153)
-                        .addComponent(jButton2)))
-                .addContainerGap(133, Short.MAX_VALUE))
+                            .addComponent(lntf, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(84, 84, 84))
         );
-        Registration_frameLayout.setVerticalGroup(
-            Registration_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Registration_frameLayout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addGroup(Registration_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(fntf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(Registration_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        registration_frameLayout.setVerticalGroup(
+            registration_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(registration_frameLayout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addGroup(registration_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fntf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(18, 18, 18)
+                .addGroup(registration_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lntf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(47, 47, 47)
-                .addGroup(Registration_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(untf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(Registration_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(pwpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(jButton2)
-                .addContainerGap(35, Short.MAX_VALUE))
+                    .addComponent(jLabel4))
+                .addGap(38, 38, 38)
+                .addGroup(registration_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(registration_frameLayout.createSequentialGroup()
+                        .addGroup(registration_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(untf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addGap(38, 38, 38))
+                    .addGroup(registration_frameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2)
+                        .addComponent(pwpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(51, 51, 51)
+                .addComponent(jButton3)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -122,10 +134,10 @@ public void clear_reg_txtfld(){
             }
         });
 
-        jButton3.setText("Sign In");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setText("Login");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -134,30 +146,38 @@ public void clear_reg_txtfld(){
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(143, 143, 143)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(147, Short.MAX_VALUE))
+                .addGap(151, 151, 151)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(176, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(98, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(128, 128, 128)
                 .addComponent(jButton1)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
-                .addGap(138, 138, 138))
+                .addComponent(jButton2)
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-Registration_frame.setVisible(true);        // TODO add your handling code here:
+registration_frame.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+this.setVisible(false);login regframe = new login();regframe.setVisible(true);regframe.setLocationRelativeTo(null);           // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void untfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_untfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_untfActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
  String fn = fntf.getText();
  String ln = lntf.getText();
 String un = untf.getText();
@@ -167,19 +187,8 @@ registration reg = new registration();
 int x = reg.register(fn, ln, un, pw);
  if(x==1){}
  
- JOptionPane.showMessageDialog(Registration_frame, "Successfully Registered");
- this.clear_reg_txtfld();
-// TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
-       new login().setVisible(true); 
-       this.setVisible(false);
- 
-
-
-// TODO add your handling code here:
+ JOptionPane.showMessageDialog(registration_frame, "Successfully Registered");
+ this.clear_reg_txtfld();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -218,7 +227,6 @@ int x = reg.register(fn, ln, un, pw);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JFrame Registration_frame;
     private javax.swing.JTextField fntf;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -229,6 +237,10 @@ int x = reg.register(fn, ln, un, pw);
     private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField lntf;
     private javax.swing.JPasswordField pwpf;
+    private javax.swing.JFrame registration_frame;
     private javax.swing.JTextField untf;
     // End of variables declaration//GEN-END:variables
-}
+
+ //To change body of generated methods, choose Tools | Templates.
+    }
+

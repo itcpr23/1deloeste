@@ -37,9 +37,33 @@ public void addproduct(){
     
 }
 
+public void searchbox(String prodname){
+     String sql="Select * from product where id like ? or product like ?;";
+         DefaultTableModel mod = (DefaultTableModel) addtable.getModel();
+         mod.setRowCount(0);
+          try{
+              Class.forName("com.mysql.jdbc.Driver");
+                Connection con = DriverManager.getConnection(cn.url, cn.username, cn.password);
+    PreparedStatement pstmt=con.prepareStatement(sql);
+    pstmt.setString(1,"%"+prodname+"%");
+    pstmt.setString(2,"%"+prodname+"%");
+    
+    
+    ResultSet rs=pstmt.executeQuery();
+    
+     while(rs.next()){
+        mod.addRow(new Object[]{rs.getString("id"),rs.getString("product"),rs.getString("qty"),rs.getString("price")});
+    }
+    
+          } catch (ClassNotFoundException ex) {
+            Logger.getLogger(addproduct.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(addproduct.class.getName()).log(Level.SEVERE, null, ex);
+        }
+}
 
 public void ShowProducts(){
-   String sql= "select * from product_info";
+   String sql= "select * from product";
    DefaultTableModel model = (DefaultTableModel) addtable.getModel();
    model.setRowCount(0);
 try{
@@ -48,7 +72,7 @@ try{
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(sql);
         while(rs.next()){
-            model.addRow(new Object[]{rs.getString("id"),rs.getString("product"), rs.getString("quantity"), rs.getString("price")});
+            model.addRow(new Object[]{rs.getString("id"),rs.getString("product"), rs.getString("qty"), rs.getString("price")});
         }
     
     
@@ -79,6 +103,9 @@ try{
         addtable = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        search_tf = new javax.swing.JTextField();
+        jButton5 = new javax.swing.JButton();
 
         add.setMinimumSize(new java.awt.Dimension(465, 360));
 
@@ -168,29 +195,57 @@ try{
             }
         });
 
+        jButton4.setText("Search");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        search_tf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                search_tfKeyReleased(evt);
+            }
+        });
+
+        jButton5.setText("Edit");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton1)
-                    .addComponent(jButton3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton3)
+                    .addComponent(jButton5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(search_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton4))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 83, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jButton1)
-                .addGap(36, 36, 36)
-                .addComponent(jButton3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton4)
+                    .addComponent(search_tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(jButton1)
+                        .addGap(36, 36, 36)
+                        .addComponent(jButton3)
+                        .addGap(26, 26, 26)
+                        .addComponent(jButton5)))
+                .addGap(20, 20, 20))
         );
 
         pack();
@@ -234,6 +289,16 @@ int tbl = addtable.getSelectedRow();
         }        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+String prod = search_tf.getText();
+        this.searchbox(prod);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void search_tfKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search_tfKeyReleased
+      String prod = search_tf.getText();
+        this.searchbox(prod);  // TODO add your handling code here:
+    }//GEN-LAST:event_search_tfKeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -275,6 +340,8 @@ int tbl = addtable.getSelectedRow();
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -282,5 +349,6 @@ int tbl = addtable.getSelectedRow();
     private javax.swing.JFormattedTextField pr;
     private javax.swing.JTextField pro;
     private javax.swing.JSpinner qq;
+    private javax.swing.JTextField search_tf;
     // End of variables declaration//GEN-END:variables
 }
